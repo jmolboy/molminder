@@ -1,0 +1,60 @@
+{
+  "name": "molminder",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "jmolboy <johnnymol@163.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "directory": "bower_components",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "css",
+    "test",
+    "tests",
+    "Gruntfile.js",
+    "package.json",
+    "main.js",
+    "app.js"
+  ],
+  "dependencies": {
+    "kityminder-editor": "^1.0.54"
+  },
+  "overrides": {
+      "codemirror": {
+          "main": [
+              "lib/codemirror.js",
+              "lib/codemirror.css",
+              "mode/xml/xml.js",
+              "mode/javascript/javascript.js",
+              "mode/css/css.js",
+              "mode/htmlmixed/htmlmixed.js",
+              "mode/markdown/markdown.js",
+              "addon/mode/overlay.js",
+              "mode/gfm/gfm.js"
+          ]
+      },
+	"bootstrap":{
+         "main":[
+            "less/bootstrap.less",
+            "dist/css/bootstrap.css",
+            "dist/js/bootstrap.js"
+         ]
+	},
+	"color-picker":{
+         "main":[
+            "dist/color-picker.css",
+            "dist/color-picker.js"
+         ]
+	},
+	"seajs":{
+		"main":[
+			
+		]
+	}
+  }
+}
