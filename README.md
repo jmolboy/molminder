@@ -1,10 +1,10 @@
 # molminder
 
-### 简介
+## 简介
 用electron 结合 [kityminder-editor](https://github.com/fex-team/kityminder-editor.git) 开发的脑图客户端，支持脑图文件的持久化(以.json格式)
 
 
-#  功能
+## 功能
 
 * 基本操作：文本编辑，节点折叠、插入、删除、排序、归纳、复制、剪切、粘贴等
 * 样式控制：字体、加粗、斜体、颜色、样式拷贝、样式粘贴等
@@ -18,7 +18,66 @@
 * 数据导入导出
 * 缩略图：支持缩略图查看/导航
 
-# 使用
+## 下载
+
+[mac os](#)
+
+## 源码
+
+1.clone源码
+
+```shell
+git clone https://github.com/jmolboy/molminder.git
+```
+
+2.安装electron-prebuilt(直接npm install 会失败)
+
+```shell
+cd molminder
+npm install electron-prebuilt
+
+```
+
+3.安装其他依赖
+
+```shell
+npm install
+
+```
+
+4.安装依赖的bower组建
+
+```shell
+bower install
+
+```
+
+5.启动开发
+
+```shell
+gulp develop
+
+```
+
+6.启动应用
+
+```shell
+npm start
+
+```
+
+
+## 联系
+
+问题和建议反馈[Github issues](https://github.com/jmolboy/molminder/issues)
+
+
+
+
+
+
+
+
 
 
 
