@@ -5,16 +5,14 @@
 	<title>mol minder title</title>
 
 	<link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
-
-	<!-- bower:css -->
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-	<link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
-	<link rel="stylesheet" href="bower_components/hotbox/hotbox.css" />
-	<link rel="stylesheet" href="bower_components/kityminder-core/dist/kityminder.core.css" />
-	<link rel="stylesheet" href="bower_components/color-picker/dist/color-picker.css" />
-	<link rel="stylesheet" href="bower_components/kityminder-editor/dist/kityminder.editor.css" />
-	<!-- endbower -->
-	
+	<!-- build:css css/client.css -->
+	<link rel="stylesheet" href="lib/css/bootstrap.css" />
+	<link rel="stylesheet" href="lib/css/codemirror.css" />
+	<link rel="stylesheet" href="lib/css/hotbox.css" />
+	<link rel="stylesheet" href="lib/css/kityminder.core.css" />
+	<link rel="stylesheet" href="lib/css/color-picker.css" />
+	<link rel="stylesheet" href="lib/css/kityminder.editor.css" />
+	<!-- endbuild -->
 	<style>
 		html, body {
 			margin: 0;
@@ -53,29 +51,27 @@ delete window.require;
 delete window.exports;
 delete window.module;
 </script>
-
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/codemirror/lib/codemirror.js"></script>
-<script src="bower_components/codemirror/mode/xml/xml.js"></script>
-<script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
-<script src="bower_components/codemirror/mode/css/css.js"></script>
-<script src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-<script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
-<script src="bower_components/codemirror/addon/mode/overlay.js"></script>
-<script src="bower_components/codemirror/mode/gfm/gfm.js"></script>
-<script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-<script src="bower_components/marked/lib/marked.js"></script>
-<script src="bower_components/kity/dist/kity.min.js"></script>
-<script src="bower_components/hotbox/hotbox.js"></script>
-<script src="bower_components/json-diff/json-diff.js"></script>
-<script src="bower_components/kityminder-core/dist/kityminder.core.min.js"></script>
-<script src="bower_components/color-picker/dist/color-picker.js"></script>
-<script src="bower_components/kityminder-editor/dist/kityminder.editor.js"></script>
-<!-- endbower -->
-<script src="app.js"></script>
-
+<!-- build:js js/client.js -->
+<script src="lib/js/jquery.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="lib/js/angular.js"></script>
+<script src="lib/js/ui-bootstrap-tpls.js"></script>
+<script src="lib/js/codemirror.js"></script>
+<script src="lib/js/xml.js"></script>
+<script src="lib/js/javascript.js"></script>
+<script src="lib/js/css.js"></script>
+<script src="lib/js/htmlmixed.js"></script>
+<script src="lib/js/markdown.js"></script>
+<script src="lib/js/overlay.js"></script>
+<script src="lib/js/gfm.js"></script>
+<script src="lib/js/ui-codemirror.js"></script>
+<script src="lib/js/marked.js"></script>
+<script src="lib/js/kity.min.js"></script>
+<script src="lib/js/hotbox.js"></script>
+<script src="lib/js/json-diff.js"></script>
+<script src="lib/js/kityminder.core.min.js"></script>
+<script src="lib/js/color-picker.js"></script>
+<script src="lib/js/kityminder.editor.js"></script>
+<script src="client.js"></script>
+<!-- endbuild -->
 </html>

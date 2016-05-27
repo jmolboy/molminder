@@ -1,7 +1,7 @@
 {
   "name": "molminder",
   "description": "",
-  "main": "index.js",
+  "main": "client.js",
   "authors": [
     "jmolboy <johnnymol@163.com>"
   ],
@@ -19,7 +19,8 @@
     "Gruntfile.js",
     "package.json",
     "main.js",
-    "app.js"
+    "app.js",
+	"app/.*"
   ],
   "dependencies": {
     "kityminder-editor": "^1.0.54"

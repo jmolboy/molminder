@@ -37,7 +37,6 @@ ipc.on('save-file', function (event, path) {
 	fs.writeFileSync(path,source_str,'utf8');
 })
 
-
 //打开文件
 ipc.on('open-file', function (event, path) {
 	if (!path) {

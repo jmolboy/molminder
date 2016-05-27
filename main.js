@@ -38,113 +38,85 @@ function createWindow() {
 let filepath = '';//文件路径
 
 /*create menu*/
-let template = [{
-    label: '文件',
-    submenu: [{
-        label: '新建',
-        accelerator: 'CmdOrCtrl+N',
-        click: function (item, focusedWindow) {
-            if (focusedWindow) {
-                win.webContents.send('new-file', '');
-            }
-        }
-    }, {
-        label: '打开',
-        accelerator: 'CmdOrCtrl+O',
-        click: function (item, focusedWindow) {
-            if (focusedWindow) {
-                const options = {
-                    title: '打开',
-                    filters: [
-                        {name: 'Json', extensions: ['json']}
-                    ],
-                    properties: ['openFile', 'openDirectory']
-                }
+let template = [
+	{
+	    label: '文件',
+	    submenu: [{
+	        label: '新建',
+	        accelerator: 'CmdOrCtrl+N',
+	        click: function (item, focusedWindow) {
+	            if (focusedWindow) {
+	                win.webContents.send('new-file', '');
+	            }
+	        }
+	    },{
+	        label: '打开',
+	        accelerator: 'CmdOrCtrl+O',
+	        click: function (item, focusedWindow) {
+	            if (focusedWindow) {
+	                const options = {
+	                    title: '打开',
+	                    filters: [
+	                        {name: 'Json', extensions: ['json']}
+	                    ],
+	                    properties: ['openFile', 'openDirectory']
+	                }
 
-                dialog.showOpenDialog(options, function (files) {
-                    if (!files && files.length < 1) {
-                        dialog.showErrorBox('错误', '请选择要打开的文件')
-                        return;
-                    }
+	                dialog.showOpenDialog(options, function (files) {
+	                    if (!files && files.length < 1) {
+	                        dialog.showErrorBox('错误', '请选择要打开的文件')
+	                        return;
+	                    }
 
-                    filepath = files[0];
-                    win.webContents.send('open-file', filepath);
-                })
-            }
-        }
-    }, {
-        label: '保存',
-        accelerator: 'CmdOrCtrl+S',
-        click: function (item, focusedWindow) {
-            if (focusedWindow) {
-                const options = {
-                    title: '保存脑图',
-                    filters: [
-                        {name: 'Json', extensions: ['json']}
-                    ]
-                }
+	                    filepath = files[0];
+	                    win.webContents.send('open-file', filepath);
+	                })
+	            }
+	        }
+	    },{
+	        label: '保存',
+	        accelerator: 'CmdOrCtrl+S',
+	        click: function (item, focusedWindow) {
+	            if (focusedWindow) {
+	                const options = {
+	                    title: '保存脑图',
+	                    filters: [
+	                        {name: 'Json', extensions: ['json']}
+	                    ]
+	                }
 
-                if (filepath != '') {
-                    win.webContents.send('save-file', filepath);
-                }
-                else {
-                    dialog.showSaveDialog(options, function (filename) {
-                        filepath = filename;
-                        win.webContents.send('save-file', filepath);
-                    })
-                }
-            }
-        }
-    }]
-}, {
-    label: '修改',
-    submenu: [{
-		label: '撤销',
-        accelerator: 'CmdOrCtrl+Z',
-        role: 'undo'
-    }, {
-        label: '重做',
-        accelerator: 'Shift+CmdOrCtrl+Z',
-        role: 'redo'
-    }, {
-        type: 'separator'
-    }, {
-        label: '剪贴',
-        accelerator: 'CmdOrCtrl+X',
-        role: 'cut'
-    }, {
-        label: '拷贝',
-        accelerator: 'CmdOrCtrl+C',
-        role: 'copy'
-    }, {
-        label: '粘贴',
-        accelerator: 'CmdOrCtrl+V',
-        role: 'paste'
-    }, {
-        label: '全选',
-        accelerator: 'CmdOrCtrl+A',
-        role: 'selectall'
-    }]
-}, {
+	                if (filepath != '') {
+	                    win.webContents.send('save-file', filepath);
+	                }
+	                else {
+	                    dialog.showSaveDialog(options, function (filename) {
+	                        filepath = filename;
+	                        win.webContents.send('save-file', filepath);
+	                    })
+	                }
+	            }
+	        }
+	    },{
+	        label: '另存为',
+	        accelerator: 'CmdOrCtrl+Shift+S',
+	        click: function (item, focusedWindow) {
+	            if (focusedWindow) {
+	                const options = {
+	                    title: '另存为',
+	                    filters: [
+	                        {name: 'Json', extensions: ['json']}
+	                    ]
+	                }
+	                dialog.showSaveDialog(options, function (filename) {
+	                    filepath = filename;
+	                    win.webContents.send('save-file', filepath);
+	                })
+	            }
+	        }
+	    }]
+	},{
     label: '视图',
     submenu: [{
-        label: '重新加载',
-        accelerator: 'CmdOrCtrl+R',
-        click: function (item, focusedWindow) {
-            if (focusedWindow) {
-                // on reload, start fresh and close any old
-                // open secondary windows
-                if (focusedWindow.id === 1) {
-                    BrowserWindow.getAllWindows().forEach(function (win) {
-                        if (win.id > 1) {
-                            win.close()
-                        }
-                    })
-                }
-                focusedWindow.reload()
-            }
-        }
-    }, {
         label: '全屏幕',
         accelerator: (function () {
             if (process.platform === 'darwin') {
@@ -172,22 +144,6 @@ let template = [{
                 focusedWindow.toggleDevTools()
             }
         }
-    }, {
-        type: 'separator'
-    }, {
-        label: 'App Menu Demo',
-        click: function (item, focusedWindow) {
-            if (focusedWindow) {
-                const options = {
-                    type: 'info',
-                    title: 'Application Menu Demo',
-                    buttons: ['Ok'],
-                    message: 'This demo is for the Menu section, showing how to create a clickable menu item in the application menu.'
-                }
-                electron.dialog.showMessageBox(focusedWindow, options, function () {
-                })
-            }
-        }
     }]
 }, {
     label: '窗口',
@@ -200,15 +156,6 @@ let template = [{
         label: '关闭',
         accelerator: 'CmdOrCtrl+W',
         role: 'close'
-    }]
-}, {
-    label: '帮助',
-    role: 'help',
-    submenu: [{
-        label: '更多',
-        click: function () {
-            electron.shell.openExternal('http://electron.atom.io')
-        }
     }]
 }]
 
