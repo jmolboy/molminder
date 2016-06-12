@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/electron .",
-    "buildapp": "webpack --progress --colors --config webpack.config.prod.js"
+	"pack": "./node_modules/.bin/electron-packager dist molminder --all --out ./OutApp --version 1.1.0 --overwrite --icon=dist/mol.icns",
+	"package":"asar pack ./OutApp/molminder-linux-ia32/resources/app molminder-win32-x64/resources/app.asar && rm -rf OutApp"
   },
   "author": "jmol",
   "repository": {
@@ -15,6 +16,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "electron-packager": "^7.0.2",
     "electron-prebuilt": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-bower-overrides": "^0.1.1",
@@ -28,11 +30,19 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.1.0",
+    "gulp-util": "^3.0.7",
     "gulp-wiredep": "0.0.0",
     "main-bower-files": "^2.13.1",
     "require-dir": "^0.3.0"
   },
   "dependencies": {
     "electron-prebuilt": "^1.1.0"
+  },
+  "build": {
+    "app-bundle-id": "your.id",
+    "app-category-type": "your.app.category.type",
+    "win": {
+      "iconUrl": "(windows-only) https link to icon"
+    }
   }
 }
