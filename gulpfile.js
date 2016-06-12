@@ -92,29 +92,8 @@ gulp.task('develop', function() {
 });
 
 var dist=__dirname+'/dist';
-/* develop */
-gulp.task('release', function() {
-    // gulp.src(paths.js)
-    //     .pipe(gulp.dest(output + '/js'));
-    //
-    // gulp.src(paths.lib.js)
-    //     .pipe(gulp.dest(output + '/js'));
-    //
-    // gulp.src(paths.css)
-    //     .pipe(gulp.dest(output + '/css'));
-    //
-    // gulp.src(paths.lib.css)
-    //     .pipe(gulp.dest(output + '/css'));
-    //
-    // gulp.src(paths.img)
-    //     .pipe(gulp.dest(output + '/images'));
-    //
-    // gulp.src(paths.lib.img)
-    //     .pipe(gulp.dest(output + '/css/images/'));
-    //
-    // gulp.src(paths.lib.fonts)
-    //     .pipe(gulp.dest(output + '/fonts'));
-		 
+/* release */
+gulp.task('release', function() {		 
     gulp.src('index.html')
         .pipe(useref())
         .pipe(gulpif('*.css', minifyCss()))
@@ -128,6 +107,9 @@ gulp.task('release', function() {
 		
     gulp.src('main.js')	
 		.pipe(gulp.dest(dist));
+		
+    gulp.src('package.json')	
+		.pipe(gulp.dest(dist));	
 });
 
 
