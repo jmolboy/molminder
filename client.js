@@ -29,6 +29,10 @@ ipc.on('save-file', function (event, path) {
 		return;
 	}
 	
+	var pathObj = Mrequire('path'); 
+	var name= pathObj.basename(path,'.json');
+	document.title = name;	
+	
 	var source=editor.minder.exportJson();
 	var source_str=JSON.stringify(source);
 
@@ -44,6 +48,10 @@ ipc.on('open-file', function (event, path) {
 		ipc.send('open-file-nopath');
 		return;
 	}
+
+	var pathObj = Mrequire('path'); 
+	var name= pathObj.basename(path,'.json');
+	document.title = name;	
 	
 	var fs = Mrequire('fs');
 	fs.readFile(path, 'utf8', function (err, data) {
@@ -52,6 +60,7 @@ ipc.on('open-file', function (event, path) {
 	    	return;
 	    }
 		filepath=path;
+		console.log(path);
 		try{
 		    var obj = JSON.parse(data);
 			editor.minder.importJson(obj);
